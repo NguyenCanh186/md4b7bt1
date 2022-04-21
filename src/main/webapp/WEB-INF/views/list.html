@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head></head>
+<body>
+<a href="/create">Create new blog</a>
+<h1>Customers</h1>
+<table id="blog" border="1" th:width="1000" th:height="500" >
+    <tr>
+        <th>Name</th>
+        <th>Title</th>
+        <th colspan="2">Action</th>
+    </tr>
+    <th:block th:each="customer : ${blogs}">
+        <tr>
+            <td ><a th:href="@{/view/__${customer.id}__}" th:text="${customer.nameBlog}"></a></td>
+            <td th:text="${customer.title}"></td>
+            <td><a th:href="@{/edit/__${customer.id}__ }">Edit</a></td>
+            <td><a th:href="@{/delete/__${customer.id}__ }">Delete</a></td>
+        </tr>
+    </th:block>
+</table>
+</body>
+</html>
